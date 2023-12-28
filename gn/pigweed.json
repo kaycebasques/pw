@@ -40,6 +40,15 @@
           ":python.install"
         ]
       },
+      "required_submodules": [
+        "third_party/FreeRTOS",
+        "third_party/nanopb",
+        "third_party/pico_sdk",
+        "third_party/pigweed",
+        "third_party/stm32cube_f4/cmsis_core",
+        "third_party/stm32cube_f4/cmsis_device",
+        "third_party/stm32cube_f4/hal_driver"
+      ],
       "gni_file": "build_overrides/pigweed_environment.gni"
     }
   }
