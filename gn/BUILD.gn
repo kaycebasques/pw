@@ -16,7 +16,7 @@ group("default") {
 
 group("app") {
   deps = [
-    "//src:app($dir_pigweed/targets/stm32f429i_disc1:stm32f429i_disc1_debug)",
+    "//src:app(//targets/discocube:discocube_debug)",
   ]
 }
 

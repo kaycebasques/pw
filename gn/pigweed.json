@@ -10,7 +10,7 @@
     },
     "pw_emu": {
       "targets": {
-        "disco": {
+        "discocube": {
           "gdb": [
             "arm-none-eabi-gdb"
           ],
@@ -19,8 +19,8 @@
             "machine": "stm32vldiscovery",
             "channels": {
               "chardevs": {
-                "char-uart1": {
-                  "id": "char-uart1"
+                "serial0": {
+                  "id": "serial0"
                 }
               }
             }
