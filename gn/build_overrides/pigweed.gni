@@ -1,5 +1,5 @@
 declare_args() {
-    dir_pigweed = "//3p/pigweed/"
+    dir_pigweed = "//third_party/pigweed/"
 }
 
 import("$dir_pigweed/modules.gni")
