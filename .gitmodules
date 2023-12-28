@@ -1,0 +1,9 @@
+[submodule "gn/3p/pigweed"]
+	path = gn/3p/pigweed
+	url = https://pigweed.googlesource.com/pigweed/pigweed
+[submodule "gn/3p/nanopb"]
+	path = gn/3p/nanopb
+	url = https://pigweed.googlesource.com/third_party/github/nanopb/nanopb
+[submodule "gn/3p/freertos"]
+	path = gn/3p/freertos
+	url = https://pigweed.googlesource.com/third_party/github/FreeRTOS/FreeRTOS-Kernel
