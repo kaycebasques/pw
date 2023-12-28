@@ -1,6 +1,6 @@
 buildconfig = "//BUILDCONFIG.gn"
 
 default_args = {
-  dir_pw_third_party_nanopb = "//3p/nanopb"
-  dir_pw_third_party_freertos = "//3p/freertos"
+  dir_pw_third_party_nanopb = "//third_party/nanopb"
+  dir_pw_third_party_freertos = "//third_party/freertos"
 }
