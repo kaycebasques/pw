@@ -10,11 +10,15 @@ group("default") {
   deps = [
     ":python.lint",
     ":python.tests",
-    ":app",
+    ":apps",
   ]
 }
 
-group("app") {
+group("discocube") {
+  _default_toolchain = "//targets/discocube:discocube_debug"
+}
+
+group("apps") {
   deps = [
     "//src:app(//targets/discocube:discocube_debug)",
   ]

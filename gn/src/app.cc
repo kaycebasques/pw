@@ -33,7 +33,7 @@ namespace pw::system {
     // return or it will block the work queue.
     void UserAppInit() {
         uart_init();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             uart_send_string("Hello, uart_send_string!\n");
             PW_LOG_INFO("Hello, PW_LOG_INFO!");
             for (int j = 0; j < 1000000; j++) {

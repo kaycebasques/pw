@@ -1,5 +1,6 @@
 # Source: https://pigweed.googlesource.com/pigweed/sample_project/+/refs/heads/main/targets/stm32f429i_disc1_stm32cube/BUILD.gn
 import("//build_overrides/pigweed.gni")
+
 import("$dir_pw_system/system_target.gni")
 import("$dir_pw_third_party/stm32cube/stm32cube.gni")
 import("$dir_pw_toolchain/generate_toolchain.gni")
@@ -14,6 +15,7 @@ pw_system_target("discocube") {
   ]
   build_args = {
     pw_log_BACKEND = dir_pw_log_basic
+    pw_log_tokenized_HANDLER_BACKEND = "$dir_pw_system:log_backend.impl"
     pw_third_party_freertos_CONFIG = "$dir_pigweed/targets/stm32f429i_disc1_stm32cube:stm32f4xx_freertos_config"
     pw_third_party_freertos_PORT = "$dir_pw_third_party/freertos:arm_cm4f"
     pw_sys_io_BACKEND = dir_pw_sys_io_stm32cube

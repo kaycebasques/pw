@@ -9,6 +9,8 @@ import("$dir_pw_system/freertos_backends.gni")
 _toolchain_args = {
   # Configure backend for assert facade.
   pw_assert_BACKEND = dir_pw_assert_basic
+  # Shouldn't be needed, but it might be...
+  pw_log_tokenized_HANDLER_BACKEND = "$dir_pw_log_tokenized:base64_over_hdlc"
   pw_log_BACKEND = dir_pw_log_basic
   pw_build_LINK_DEPS = [
     "$dir_pw_assert:impl",
