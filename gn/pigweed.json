@@ -8,6 +8,26 @@
         }
       }
     },
+    "pw_emu": {
+      "targets": {
+        "disco": {
+          "gdb": [
+            "arm-none-eabi-gdb"
+          ],
+          "qemu": {
+            "executable": "qemu-system-arm",
+            "machine": "stm32vldiscovery",
+            "channels": {
+              "chardevs": {
+                "char-uart1": {
+                  "id": "char-uart1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "pw_env_setup": {
       "root_variable": "PROJECT_ROOT",
       "cipd_package_files": [
