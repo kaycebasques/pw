@@ -1,0 +1,5 @@
+_pigweed_directory = {
+  import("//build_overrides/pigweed.gni")
+}
+
+set_default_toolchain("${_pigweed_directory.dir_pw_toolchain}/default")
