@@ -1,0 +1,46 @@
+{
+  "pw": {
+    "pw_cli": {
+      "plugins": {
+        "package": {
+          "module": "pw_package.pigweed_packages",
+          "function": "main"
+        }
+      }
+    },
+    "pw_emu": {
+      "targets": {
+        "disco": {
+          "gdb": [
+            "arm-none-eabi-gdb"
+          ],
+          "qemu": {
+            "executable": "qemu-system-arm",
+            "machine": "stm32vldiscovery",
+            "channels": {
+              "chardevs": {
+                "char-uart1": {
+                  "id": "char-uart1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "pw_env_setup": {
+      "root_variable": "PROJECT_ROOT",
+      "cipd_package_files": [
+        "third_party/pigweed/pw_env_setup/py/pw_env_setup/cipd_setup/default.json",
+        "third_party/pigweed/pw_env_setup/py/pw_env_setup/cipd_setup/kythe.json"
+      ],
+      "virtualenv": {
+        "gn_root": ".",
+        "gn_targets": [
+          ":python.install"
+        ]
+      },
+      "gni_file": "build_overrides/pigweed_environment.gni"
+    }
+  }
+}
