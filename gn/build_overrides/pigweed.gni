@@ -1,5 +1,0 @@
-declare_args() {
-    dir_pigweed = "//third_party/pigweed/"
-}
-
-import("$dir_pigweed/modules.gni")
