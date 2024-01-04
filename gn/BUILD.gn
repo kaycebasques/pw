@@ -16,7 +16,8 @@ group("default") {
 
 group("app") {
   deps = [
-    "//src:app(//targets/stm32f429i_disc1_stm32cube:stm32f429i_disc1_stm32cube.size_optimized)",
+    # "//src:app(//targets/stm32f429i_disc1_stm32cube:stm32f429i_disc1_stm32cube.size_optimized)",
+    "//src:app(//targets/arduino:arduino_debug)",
   ]
 }
 
