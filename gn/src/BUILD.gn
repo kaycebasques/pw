@@ -1,5 +1,5 @@
 import("//build_overrides/pigweed.gni")
-import("$dir_pw_build/target_types.gni")
+import("//third_party/pigweed/pw_build/target_types.gni")
 
 group("all") {
     deps = [
@@ -10,6 +10,6 @@ group("all") {
 pw_executable("app") {
     sources = [ "app.cc" ]
     deps = [
-        dir_pw_log,
+        "//third_party/pigweed/pw_log",
     ]
 }
