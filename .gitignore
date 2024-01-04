@@ -1,1 +1,3 @@
-gn/.pw_emu
+build_overrides/pigweed_environment.gni
+environment
+out
