@@ -1,4 +1,4 @@
-#define PW_LOG_MODULE_NAME "hostsys"
+#define PW_LOG_MODULE_NAME "host_sys"
 
 #include <chrono>
 

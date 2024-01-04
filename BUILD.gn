@@ -3,22 +3,21 @@ import("//third_party/pigweed/pw_build/python.gni")
 import("//third_party/pigweed/pw_build/python_dist.gni")
 
 group("default") {
-  deps = [
-    ":hello_world",
-    ":python.lint",
-    ":python.tests",
-  ]
+    deps = [
+        ":hello_world_sys",
+        ":python.lint",
+        ":python.tests",
+    ]
 }
 
-group("hello_world") {
-  deps = [
-    "//src:hello_world(//third_party/pigweed/targets/host_device_simulator:host_device_simulator.debug)",
-    "//src:hello_world(//targets/hostsys:hostsys.debug)",
-  ]
+group("hello_world_sys") {
+    deps = [
+        "//src:hello_world_sys(//targets/host_sys:host_sys.debug)",
+    ]
 }
 
 pw_python_group("python") {
-  python_deps = [
-    "//third_party/pigweed/pw_env_setup:python",
-  ]
+    python_deps = [
+        "//third_party/pigweed/pw_env_setup:python",
+    ]
 }
