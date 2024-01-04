@@ -7,3 +7,12 @@
 [submodule "gn/third_party/freertos"]
 	path = gn/third_party/freertos
 	url = https://pigweed.googlesource.com/third_party/github/FreeRTOS/FreeRTOS-Kernel
+[submodule "gn/third_party/stm32cube_f4/cmsis_core"]
+	path = gn/third_party/stm32cube_f4/cmsis_core
+	url = https://pigweed.googlesource.com/third_party/github/STMicroelectronics/cmsis_core
+[submodule "gn/third_party/stm32cube_f4/hal_driver"]
+	path = gn/third_party/stm32cube_f4/hal_driver
+	url = https://pigweed.googlesource.com/third_party/github/STMicroelectronics/stm32f4xx_hal_driver
+[submodule "gn/third_party/stm32cube_f4/cmsis_device"]
+	path = gn/third_party/stm32cube_f4/cmsis_device
+	url = https://pigweed.googlesource.com/third_party/github/STMicroelectronics/cmsis_device_f4
