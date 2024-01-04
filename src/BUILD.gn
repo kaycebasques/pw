@@ -7,8 +7,8 @@ group("all") {
     ]
 }
 
-pw_executable("app") {
-    sources = [ "app.cc" ]
+pw_executable("hello_world") {
+    sources = ["hello_world.cc"]
     deps = [
         "//third_party/pigweed/pw_log",
     ]

@@ -2,28 +2,19 @@ import("//build_overrides/pigweed.gni")
 import("//third_party/pigweed/pw_build/python.gni")
 import("//third_party/pigweed/pw_build/python_dist.gni")
 
-##############
-# Applications
-##############
-
 group("default") {
   deps = [
+    ":hello_world",
     ":python.lint",
     ":python.tests",
-    ":app",
   ]
 }
 
-group("app") {
+group("hello_world") {
   deps = [
-    # "//src:app(//targets/stm32f429i_disc1_stm32cube:stm32f429i_disc1_stm32cube.size_optimized)",
-    "//src:app(//targets/arduino:arduino_debug)",
+    "//src:hello_world(//third_party/pigweed/targets/host_device_simulator:host_device_simulator.debug)",
   ]
 }
-
-################
-# Python tooling
-################
 
 pw_python_group("python") {
   python_deps = [

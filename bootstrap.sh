@@ -1,24 +1,11 @@
-# This script must be sourced, not executed.
-#
-# Create a new environment:
-#
-#   source bootstrap.sh
-#
-# Activate an existing environment:
-#
-#   source activate.sh
-
 _bootstrap_abspath () {
   $(command -v python3 || command -v python2 || command -v python) -c "import os.path; print(os.path.abspath('$@'))"
 }
 
-# Shell: bash.
 if test -n "$BASH"; then
   _BOOTSTRAP_PATH="$(_bootstrap_abspath "$BASH_SOURCE")"
-# Shell: zsh.
 elif test -n "$ZSH_NAME"; then
   _BOOTSTRAP_PATH="$(_bootstrap_abspath "${(%):-%N}")"
-# Shell: dash.
 elif test ${0##*/} = dash; then
   _BOOTSTRAP_PATH="$(_bootstrap_abspath \
     "$(lsof -p $$ -Fn0 | tail -1 | sed 's#^[^/]*##;')")"
@@ -53,16 +40,13 @@ PROJECT_ROOT="$(_bootstrap_abspath "$(dirname "$_BOOTSTRAP_PATH")")"
 export PROJECT_ROOT
 PW_PROJECT_ROOT="$PROJECT_ROOT"
 PW_ROOT="$PROJECT_ROOT/third_party/pigweed"
-
 # Set your project's banner and color.
 export PW_BRANDING_BANNER="$PROJECT_ROOT/banner.txt"
-export PW_BRANDING_BANNER_COLOR=green
-
+export PW_BRANDING_BANNER_COLOR=red
 project_banner() {
   cat "$PW_BRANDING_BANNER"
   echo
 }
-
 PW_BANNER_FUNC="project_banner"
 ########## END PROJECT-SPECIFIC CODE ##########
 export PW_BANNER_FUNC

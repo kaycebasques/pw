@@ -1,7 +1,7 @@
 buildconfig = "//BUILDCONFIG.gn"
 
+import("//build_overrides/pigweed.gni")
+
 default_args = {
-  dir_pw_third_party_nanopb = "//third_party/nanopb"
-  dir_pw_third_party_freertos = "//third_party/freertos"
-  dir_pw_third_party_stm32cube_f4 = "//third_party/stm32cube_f4"
+  # Nothing needed here, yet...
 }
