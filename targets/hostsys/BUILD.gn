@@ -1,0 +1,23 @@
+import("//build_overrides/pigweed.gni")
+import("//third_party/pigweed/pw_system/system_target.gni")
+import("//third_party/pigweed/pw_toolchain/generate_toolchain.gni")
+
+if (current_toolchain != default_toolchain) {
+  pw_source_set("boot") {
+    deps = [
+      "//third_party/pigweed/pw_log",
+      "//third_party/pigweed/pw_system",
+      "//third_party/pigweed/pw_thread:sleep",
+    ]
+    sources = [ "boot.cc" ]
+  }
+}
+
+pw_system_target("hostsys") {
+  cpu = PW_SYSTEM_CPU.NATIVE
+  scheduler = PW_SYSTEM_SCHEDULER.NATIVE
+  link_deps = [ "//targets/hostsys:boot" ]
+  build_args = {
+    pw_sys_io_BACKEND = "//third_party/pigweed/pw_sys_io_stdio"
+  }
+}

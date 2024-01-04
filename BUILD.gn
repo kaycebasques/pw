@@ -13,6 +13,7 @@ group("default") {
 group("hello_world") {
   deps = [
     "//src:hello_world(//third_party/pigweed/targets/host_device_simulator:host_device_simulator.debug)",
+    "//src:hello_world(//targets/hostsys:hostsys.debug)",
   ]
 }
 
