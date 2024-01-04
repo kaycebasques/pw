@@ -1,3 +1,4 @@
 build_overrides/pigweed_environment.gni
 environment
 out
+*logs.txt
