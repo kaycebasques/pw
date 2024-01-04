@@ -1,2 +1,5 @@
-# Sample project defines `dir_pigweed` here but that was problematic for me so
-# this file does nothing.
+declare_args() {
+  dir_pigweed = "//third_party/pigweed"
+}
+
+import("//third_party/pigweed/modules.gni")

@@ -1,6 +1,6 @@
 import("//build_overrides/pigweed.gni")
-import("$dir_pw_build/python.gni")
-import("$dir_pw_build/python_dist.gni")
+import("//third_party/pigweed/pw_build/python.gni")
+import("//third_party/pigweed/pw_build/python_dist.gni")
 
 ##############
 # Applications
@@ -26,6 +26,6 @@ group("app") {
 
 pw_python_group("python") {
   python_deps = [
-    "$dir_pw_env_setup:python",
+    "//third_party/pigweed/pw_env_setup:python",
   ]
 }
