@@ -4,9 +4,16 @@ import("//third_party/pigweed/pw_build/python_dist.gni")
 
 group("default") {
     deps = [
+        ":hello_world_bare",
         ":hello_world_sys",
         ":python.lint",
         ":python.tests",
+    ]
+}
+
+group("hello_world_bare") {
+    deps = [
+        "//src:hello_world_bare(//targets/host_bare:host_bare_debug)",
     ]
 }
 
@@ -15,6 +22,7 @@ group("hello_world_sys") {
         "//src:hello_world_sys(//targets/host_sys:host_sys.debug)",
     ]
 }
+
 
 pw_python_group("python") {
     python_deps = [

@@ -3,8 +3,14 @@ import("//third_party/pigweed/pw_build/target_types.gni")
 
 group("all") {
     deps = [
+        ":hello_world_bare",
         ":hello_world_sys",
     ]
+}
+
+pw_executable("hello_world_bare") {
+    sources = ["hello_world_bare.cc"]
+    deps = ["//third_party/pigweed/pw_log"]
 }
 
 pw_executable("hello_world_sys") {
