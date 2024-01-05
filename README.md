@@ -2,6 +2,24 @@
 
 (╯°□°)╯︵ ┻━┻
 
+## Targets
+
+### Bare-metal targets
+
+`pw_executable`
+
+#### `host_bare`
+
+```
+./out/host_bare_debug/obj/src/bin/hello_world_bare
+```
+
+### `pw_system` targets
+
+`pw_system_target`
+
+#### `host_sys`
+
 ## Console
 
 ```
