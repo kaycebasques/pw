@@ -10,7 +10,10 @@ group("all") {
 
 pw_executable("hello_world_bare") {
     sources = ["hello_world_bare.cc"]
-    deps = ["//third_party/pigweed/pw_log"]
+    deps = [
+        "//third_party/pigweed/pw_log",
+        "//third_party/pigweed/pw_string",
+    ]
 }
 
 pw_executable("hello_world_sys") {
