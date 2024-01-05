@@ -2,3 +2,9 @@
 [submodule "third_party/pigweed"]
 	path = third_party/pigweed
 	url = https://pigweed.googlesource.com/pigweed/pigweed
+[submodule "third_party/freertos"]
+	path = third_party/freertos
+	url = https://pigweed.googlesource.com/third_party/github/FreeRTOS/FreeRTOS-Kernel
+[submodule "third_party/pico_sdk"]
+	path = third_party/pico_sdk
+	url = https://pigweed.googlesource.com/third_party/github/raspberrypi/pico-sdk

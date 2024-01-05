@@ -1,0 +1,25 @@
+import("//build_overrides/pi_pico.gni")
+import("//build_overrides/pigweed.gni")
+
+import("//third_party/pigweed/pw_system/system_target.gni")
+
+pw_system_target("rp2040_sys") {
+  cpu = PW_SYSTEM_CPU.CORTEX_M0PLUS
+  scheduler = PW_SYSTEM_SCHEDULER.FREERTOS
+  use_pw_malloc = false  # Aha!!
+  global_configs = [ "//third_party/pigweed/targets/rp2040_pw_system:rp2040_hal_config" ]
+  build_args = {
+    pw_build_EXECUTABLE_TARGET_TYPE = "pico_executable"
+    pw_build_EXECUTABLE_TARGET_TYPE_FILE = get_path_info("//third_party/pigweed/targets/rp2040/pico_executable.gni", "abspath")
+    pw_log_BACKEND = "//third_party/pigweed/pw_log_tokenized"
+    pw_log_tokenized_HANDLER_BACKEND = "//third_party/pigweed/pw_system:log_backend.impl"
+    pw_third_party_freertos_CONFIG = "//third_party/pigweed/targets/rp2040_pw_system:rp2040_freertos_config"
+    pw_third_party_freertos_PORT = "//third_party/pigweed/third_party/freertos:arm_cm0"
+    pw_sys_io_BACKEND = "//third_party/pigweed/pw_sys_io_stdio"
+    pw_build_LINK_DEPS += [
+      "//third_party/pigweed/targets/rp2040_pw_system:pre_init",
+      "//third_party/pigweed/pw_assert:impl",
+      "//third_party/pigweed/pw_log:impl",
+    ]
+  }
+}

@@ -15,5 +15,8 @@ pw_executable("hello_world_bare") {
 
 pw_executable("hello_world_sys") {
     sources = ["hello_world_sys.cc"]
-    deps = ["//third_party/pigweed/pw_log"]
+    deps = [
+        "//third_party/pigweed/pw_log",
+        "//third_party/pigweed/pw_system:pw_system",
+    ]
 }

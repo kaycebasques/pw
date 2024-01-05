@@ -20,6 +20,7 @@ group("hello_world_bare") {
 group("hello_world_sys") {
     deps = [
         "//src:hello_world_sys(//targets/host_sys:host_sys.debug)",
+        "//src:hello_world_sys(//targets/rp2040_sys:rp2040_sys.debug)",
     ]
 }
 
