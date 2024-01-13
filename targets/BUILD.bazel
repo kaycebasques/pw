@@ -26,3 +26,5 @@ platform(
         "@pw_toolchain//constraints/arm_mcpu:cortex-m4",
     ],
 )
+
+config_
