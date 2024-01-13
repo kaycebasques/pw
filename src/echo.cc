@@ -14,9 +14,11 @@
 
 #include <cstddef>
 #include <cinttypes>
+#include <chrono>
 
 #include "pw_sys_io/sys_io.h"
 #include "pw_preprocessor/compiler.h"
+#include "pw_chrono/system_clock.h"
 
 // Base address for everything peripheral-related on the STM32F4xx.
 constexpr uint32_t kPeripheralBaseAddr = 0x40000000u;
@@ -94,6 +96,12 @@ void TurnOn() { gpio_g.gpio_bit_set = kGpio13BitSetHigh; }
 int main() {
   Init();
   TurnOn();
-  while (true) { /* Spin */ }
+  std::byte data;
+  while (true) {
+    // const pw::chrono::SystemClock::time_point now = pw::chrono::SystemClock::now();
+    pw::sys_io::ReadByte(&data).IgnoreError();
+    pw::sys_io::WriteByte(data).IgnoreError();
+    // Spin...
+  }
   return 0;
 }

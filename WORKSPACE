@@ -79,6 +79,12 @@ local_repository(
     path = "third_party/pigweed/pw_toolchain_bazel",
 )
 
+new_local_repository(
+    name = "freertos",
+    path = "third_party/freertos",
+    build_file = "@pigweed//third_party/freertos:BUILD.bazel",
+)
+
 # Get ready to grab CIPD dependencies. For this minimal example, the only
 # dependencies will be the toolchains and OpenOCD (used for flashing).
 load(

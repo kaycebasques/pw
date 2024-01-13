@@ -26,6 +26,7 @@ cc_binary(
         "@pigweed//pw_boot",
         "@pigweed//pw_sys_io",
         "@pigweed//targets:pw_assert_backend_impl",
+        "@pigweed//pw_chrono:system_clock",
     ] + select({
         "@platforms//cpu:armv7e-m": [
             "@pigweed//targets/stm32f429i_disc1:basic_linker_script",

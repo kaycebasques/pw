@@ -2,3 +2,6 @@
 	path = third_party/pigweed
 	url = https://pigweed.googlesource.com/pigweed/pigweed
 	branch = main
+[submodule "third_party/freertos"]
+	path = third_party/freertos
+	url = https://pigweed.googlesource.com/third_party/github/FreeRTOS/FreeRTOS-Kernel

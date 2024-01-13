@@ -18,8 +18,11 @@ platform(
         "@pigweed//pw_malloc_freelist:backend",
         # Use the baremetal backend for stm32f429 defined in upstream Pigweed.
         "@pigweed//pw_sys_io_baremetal_stm32f429:backend",
+        "@pigweed//pw_interrupt_cortex_m:backend",
         "@platforms//cpu:armv7e-m",
         "@platforms//os:none",
+        "@pigweed//pw_build/constraints/rtos:freertos",
+        "@pigweed//targets/stm32f429i_disc1_stm32cube:freertos_config_cv",
         # Target the cortex-m4. Bazel selects the right toolchain based on
         # this.
         "@pw_toolchain//constraints/arm_mcpu:cortex-m4+nofp",
