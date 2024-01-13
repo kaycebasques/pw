@@ -31,3 +31,7 @@ bazel run //tools:flash
 ```
 bazel run //tools:miniterm -- /dev/ttyACM0 --filter=debug
 ```
+
+## Resources
+
+* https://www.st.com/en/evaluation-tools/32f429idiscovery.html
