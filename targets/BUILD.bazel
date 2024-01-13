@@ -14,15 +14,16 @@
 
 platform(
     name = "stm32",
-    constraint_values = [
-        "@pigweed//targets/stm32f429i_disc1_stm32cube:freertos_config_cv",
-        "@pigweed//pw_build/constraints/rtos:freertos",
-        "@pigweed//pw_interrupt_cortex_m:backend",
-        "@pigweed//pw_malloc_freelist:backend",
-        "@pigweed//pw_sys_io_stm32cube:backend",
-        "@pigweed//third_party/freertos:port_ARM_CM4F",
-        "@pigweed//third_party/freertos:disable_task_statics",
-        "@platforms//cpu:armv7e-m",
-        "@pw_toolchain//constraints/arm_mcpu:cortex-m4",
-    ],
+    parents = ["@pigweed//targets/stm32f429i_disc1_stm32cube:platform"],
+    # constraint_values = [
+    #     "@pigweed//targets/stm32f429i_disc1_stm32cube:freertos_config_cv",
+    #     "@pigweed//pw_build/constraints/rtos:freertos",
+    #     "@pigweed//pw_interrupt_cortex_m:backend",
+    #     "@pigweed//pw_malloc_freelist:backend",
+    #     "@pigweed//pw_sys_io_stm32cube:backend",
+    #     "@pigweed//third_party/freertos:port_ARM_CM4F",
+    #     "@pigweed//third_party/freertos:disable_task_statics",
+    #     "@platforms//cpu:armv7e-m",
+    #     "@pw_toolchain//constraints/arm_mcpu:cortex-m4",
+    # ],
 )
