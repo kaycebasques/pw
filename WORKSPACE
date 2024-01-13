@@ -65,6 +65,30 @@ load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 
 protobuf_deps()
 
+# Required by: rules_fuzzing.
+http_archive(
+    name = "com_google_absl",
+    sha256 = "3ea49a7d97421b88a8c48a0de16c16048e17725c7ec0f1d3ea2683a2a75adc21",
+    strip_prefix = "abseil-cpp-20230125.0",
+    urls = ["https://github.com/abseil/abseil-cpp/archive/refs/tags/20230125.0.tar.gz"],
+)
+
+# Set up rules for fuzz testing.
+http_archive(
+    name = "rules_fuzzing",
+    sha256 = "d9002dd3cd6437017f08593124fdd1b13b3473c7b929ceb0e60d317cb9346118",
+    strip_prefix = "rules_fuzzing-0.3.2",
+    urls = ["https://github.com/bazelbuild/rules_fuzzing/archive/v0.3.2.zip"],
+)
+
+load("@rules_fuzzing//fuzzing:repositories.bzl", "rules_fuzzing_dependencies")
+
+rules_fuzzing_dependencies()
+
+load("@rules_fuzzing//fuzzing:init.bzl", "rules_fuzzing_init")
+
+rules_fuzzing_init()
+
 # Add Pigweed itself, as a submodule.
 #
 # TODO: b/300695111 - Support depending on Pigweed as a git_repository, even if
@@ -129,11 +153,11 @@ load("@rules_python//python:repositories.bzl", "python_register_toolchains")
 
 # Set up the Python interpreter and PyPI dependencies we'll need.
 python_register_toolchains(
-    name = "python3_10",
+    name = "python3",
     python_version = "3.10",
 )
 
-load("@python3_10//:defs.bzl", "interpreter")
+load("@python3//:defs.bzl", "interpreter")
 load("@rules_python//python:pip.bzl", "pip_parse")
 
 pip_parse(
