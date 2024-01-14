@@ -40,3 +40,4 @@ bazel run //tools:miniterm -- /dev/ttyACM0 --filter=debug
 * https://www.st.com/en/embedded-software/stm32cubef4.html#documentation
 * https://microcontrollerslab.com/led-blinking-tutorial-stm32f4-discovery-board-gpio-hal-library/
   * It was GPIOG in my case, not GPIOD, but the first blinky did work besides that
+* https://01001000.xyz/2020-05-11-Tutorial-STM32CubeIDE-Getting-started/
