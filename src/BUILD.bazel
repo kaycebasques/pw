@@ -38,7 +38,6 @@ cc_binary(
 cc_binary(
     name = "blinky",
     srcs = ["blinky.cc"],
-    copts = ["-Wno-unused-parameter"],
     malloc = select({
         "@platforms//cpu:armv7e-m": "@pigweed//pw_malloc",
         "//conditions:default": "@bazel_tools//tools/cpp:malloc",

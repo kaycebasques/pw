@@ -17,7 +17,7 @@ git clone --recursive git@github.com:kaycebasques/pwbzl.git
 ## Build
 
 ```
-bazel build --config=stm32 //... --copt="-Wno-error"
+bazel build --config=stm32 //... --copt="-Wno-error" --platforms=//targets:stm32
 ```
 
 ## Flash

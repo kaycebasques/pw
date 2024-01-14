@@ -16,6 +16,8 @@ int main() {
     HAL_Init();
     Init_OnBoard_LEDs();
     HAL_GPIO_TogglePin(GPIOG,GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15);
+    HAL_GPIO_TogglePin(GPIOG,GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15);
+    HAL_GPIO_TogglePin(GPIOG,GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15);
     while (true) {
         // HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
     }
