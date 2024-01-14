@@ -18,6 +18,10 @@ package(default_visibility = ["//visibility:public"])
 cc_binary(
     name = "echo",
     srcs = ["echo.cc"],
+    copts = [
+        "-Wno-deprecated-non-prototype",
+        "-Wno-deprecated-declarations",
+    ],
     malloc = select({
         "@platforms//cpu:armv7e-m": "@pigweed//pw_malloc",
         "//conditions:default": "@bazel_tools//tools/cpp:malloc",

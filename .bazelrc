@@ -40,6 +40,6 @@ build:asan-libfuzzer --@rules_fuzzing//fuzzing:cc_engine_sanitizer=asan
 build:stm32 --copt="-DSTM32CUBE_HEADER=\"stm32f4xx.h\""
 build:stm32 --copt="-DSTM32F429xx"
 build:stm32 --@hal_driver//:hal_config=@pigweed//targets/stm32f429i_disc1_stm32cube:hal_config
-build:stm32 --@pigweed//pw_log:backend_impl=@pigweed//pw_log_tokenized:impl
-build:stm32 --@pigweed//targets:pw_log_backend=@pigweed//pw_log_tokenized
-build:stm32 --@pigweed//targets:pw_log_tokenized_handler_backend=@pigweed//pw_system:log_backend
+# build:stm32 --@pigweed//pw_log:backend_impl=@pigweed//pw_log_tokenized:impl
+# build:stm32 --@pigweed//targets:pw_log_backend=@pigweed//pw_log_tokenized
+# build:stm32 --@pigweed//targets:pw_log_tokenized_handler_backend=@pigweed//pw_system:log_backend
