@@ -133,17 +133,18 @@ https://github.com/AdrianHuang/stm32f429-led/blob/master/01-SimpleLinkerScript/b
 */
 
 int main() {
-    SystemInit();
     HAL_Init();
-    SystemClock_Config();
-    Init();
-    HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_13);
+    // SystemInit();
+    // HAL_Init();
+    // SystemClock_Config();
+    // Init();
+    // HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_13);
     // MyInit();
     // GPIOD->BSRR = 1<<12; // Set the BSRR bit X to 1 to turn respective LED on
     // GPIOD->BSRR = 1<<13; // Set the BSRR bit X to 1 to turn respective LED on
     // GPIOD->BSRR = 1<<14; // Set the BSRR bit X to 1 to turn respective LED on
     // GPIOD->BSRR = 1<<15; // Set the BSRR bit X to 1 to turn respective LED on
-    TurnOn();
+    // TurnOn();
     while (true) {}
     return 0;
 }
