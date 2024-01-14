@@ -17,13 +17,13 @@ git clone --recursive git@github.com:kaycebasques/pwbzl.git
 ## Build
 
 ```
-bazel build //...
+bazel build --config=stm32 //... --copt="-Wno-error"
 ```
 
 ## Flash
 
 ```
-bazel run //tools:flash
+bazel run --config=stm32 //tools:flash --copt="-Wno-error"
 ```
 
 ## Communicate
