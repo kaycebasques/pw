@@ -35,3 +35,5 @@ bazel run //tools:miniterm -- /dev/ttyACM0 --filter=debug
 ## Resources
 
 * https://www.st.com/en/evaluation-tools/32f429idiscovery.html
+* https://github.com/STMicroelectronics/STM32CubeF4/tree/master/Projects/STM32F429I-Discovery
+* https://github.com/STMicroelectronics/STM32CubeF4/blob/5983d9348e9b0c230cbe9cd2170159675f8753c6/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery.c
