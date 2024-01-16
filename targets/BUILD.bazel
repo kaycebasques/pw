@@ -16,9 +16,9 @@ platform(
     name = "stm32",
     parents = ["@pigweed//targets/stm32f429i_disc1_stm32cube:platform"],
     constraint_values = [
-        "@pigweed//third_party/freertos:port_ARM_CM4F",
-        "@pigweed//third_party/freertos:no_malloc",
-        "@pigweed//third_party/freertos:disable_task_statics",
+        "@freertos//:port_ARM_CM4F",
+        "@freertos//:no_malloc",
+        "@freertos//:disable_task_statics",
     ],
     # constraint_values = [
     #     # "@pigweed//pw_toolchain/arm_gcc:warnings",
