@@ -50,25 +50,27 @@ void Init_OnBoard_LEDs(void) {
     HAL_GPIO_Init(GPIOG, &BoardLEDs);
 }
 
-// int main() {
-//   while (true) {
-//     std::byte data;
-//     pw::sys_io::ReadByte(&data).IgnoreError();
-//     pw::sys_io::WriteByte(data).IgnoreError();
-//   }
-//   return 0;
-// }
-
 int main() {
-    SystemInit();
-    HAL_Init();
-    // SystemClock_Config();
-    Init_OnBoard_LEDs();
-    while (true) {
-        // Not sure why LEDs do not appear to toggle on / off
-        HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_14);
-        HAL_Delay(1000);
-        // for (int i = 0; i < 10000000; i++) {}
-    }
-    return 0;
+  // HAL_Init();
+  while (true) {
+    std::byte data;
+    pw::sys_io::ReadByte(&data).IgnoreError();
+    std::byte mychar = (std::byte) '!';
+    pw::sys_io::WriteByte(mychar).IgnoreError();
+  }
+  return 0;
 }
+
+// int main() {
+//     SystemInit();
+//     HAL_Init();
+//     // SystemClock_Config();
+//     Init_OnBoard_LEDs();
+//     while (true) {
+//         // Not sure why LEDs do not appear to toggle on / off
+//         HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_14);
+//         HAL_Delay(1000);
+//         // for (int i = 0; i < 10000000; i++) {}
+//     }
+//     return 0;
+// }
