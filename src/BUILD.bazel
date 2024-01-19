@@ -15,22 +15,10 @@ load("//:echo.bzl", "stm32_cc_binary")
 
 package(default_visibility = ["//visibility:public"])
 
-cc_library(
-    name = "libopencm3",
-    srcs = glob(["**/*.c"]),
-    hdrs = glob(["**/*.h"]),
-    includes = ["include"],
-    visibility = ["//visibility:public"],
-)
-
 cc_binary(
     name = "blinky",
     srcs = [
         "blinky.cc",
-        "//third_party/libopencm3/lib/stm32/f4/rcc.c",
-        "//third_party/libopencm3/include/libopencm3/stm32/f4/rcc.h",
-        "//third_party/libopencm3/lib/stm32/common/gpio_common_f0234.c",
-        "//third_party/libopencm3/include/libopencm3/stm32/f4/gpio.h",
     ],
     malloc = select({
         "@platforms//cpu:armv7e-m": "@pigweed//pw_malloc",
@@ -43,6 +31,7 @@ cc_binary(
         "@platforms//cpu:armv7e-m": [
             "@pigweed//targets/stm32f429i_disc1:basic_linker_script",
             "@pigweed//targets/stm32f429i_disc1:pre_init",
+            "@libopencm3//:libopencm3",
         ],
         "//conditions:default": [],
     }),
