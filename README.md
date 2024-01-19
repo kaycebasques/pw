@@ -1,43 +1,59 @@
-# pwbzl
+# Pigweed: minimal Bazel example
 
-Pigweed apps in a Bazel-based project.
+This repository contains a minimal example of a Bazel-based Pigweed project.
+It's an echo application for the STM32F429 Discovery Board.
 
-Forked from <https://pigweed.googlesource.com/example/echo>.
-
-## Install
-
-```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-nvm install --lts
-nvm use --lts
-npm install -g @bazel/bazelisk
-git clone --recursive git@github.com:kaycebasques/pwbzl.git
-```
-
-## Build
+## Cloning
 
 ```
-bazel build --config=stm32 //... --copt="-Wno-error" --platforms=//targets:stm32
+git clone --recursive https://pigweed.googlesource.com/example/echo
 ```
 
-## Flash
+If you already cloned but forgot to include `--recursive`, run `git submodule
+update --init` to pull all submodules.
+
+TODO: b/300695111 - Don't require submodules for this example.
+
+## Building
+
+We'll assume you already have Bazel on your system. If you don't, the
+recommended way to get it is through
+[Bazelisk](https://github.com/bazelbuild/bazelisk/blob/master/README.md).
+
+To build the entire project (including building the application for both the
+host and the STM32 Discovery Board), run
 
 ```
-bazel run --config=stm32 //tools:flash --copt="-Wno-error"
+bazel build //...
 ```
 
-## Communicate
+To run the application locally on your machine, run,
+
+```
+bazel run //src:echo
+```
+
+## Flashing
+
+To flash the firmware to a STM32F429 Discovery Board connected to your machine,
+run,
+
+```
+bazel run //tools:flash
+```
+
+Note that you _don't need to build the firmware first_: Bazel knows that the
+firmware images are needed to flash the board, and will build them for you. And
+if you edit the source of the firmware or any of its dependencies, it will get
+rebuilt when you flash.
+
+## Communicating
+
+Run,
 
 ```
 bazel run //tools:miniterm -- /dev/ttyACM0 --filter=debug
 ```
 
-## Resources
-
-* https://www.st.com/en/evaluation-tools/32f429idiscovery.html
-* https://github.com/STMicroelectronics/STM32CubeF4/tree/master/Projects/STM32F429I-Discovery
-* https://github.com/STMicroelectronics/STM32CubeF4/blob/5983d9348e9b0c230cbe9cd2170159675f8753c6/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery.c
-* https://www.st.com/en/embedded-software/stm32cubef4.html#documentation
-* https://microcontrollerslab.com/led-blinking-tutorial-stm32f4-discovery-board-gpio-hal-library/
-  * It was GPIOG in my case, not GPIOD, but the first blinky did work besides that
-* https://01001000.xyz/2020-05-11-Tutorial-STM32CubeIDE-Getting-started/
+to communicate with the board. When you transmit a character, you should get
+the same character back!

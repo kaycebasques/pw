@@ -2,12 +2,3 @@
 	path = third_party/pigweed
 	url = https://pigweed.googlesource.com/pigweed/pigweed
 	branch = main
-[submodule "third_party/cmsis_core"]
-	path = third_party/cmsis_core
-	url = https://pigweed.googlesource.com/third_party/github/STMicroelectronics/cmsis_core
-[submodule "third_party/cmsis_device"]
-	path = third_party/cmsis_device
-	url = https://pigweed.googlesource.com/third_party/github/STMicroelectronics/cmsis_device_f4
-[submodule "third_party/hal_driver"]
-	path = third_party/hal_driver
-	url = https://pigweed.googlesource.com/third_party/github/STMicroelectronics/stm32f4xx_hal_driver

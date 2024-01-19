@@ -16,9 +16,12 @@ platform(
     name = "stm32",
     constraint_values = [
         "@pigweed//pw_malloc_freelist:backend",
-        "@pigweed//pw_sys_io_stm32cube:backend",
+        # Use the baremetal backend for stm32f429 defined in upstream Pigweed.
+        "@pigweed//pw_sys_io_baremetal_stm32f429:backend",
         "@platforms//cpu:armv7e-m",
         "@platforms//os:none",
+        # Target the cortex-m4. Bazel selects the right toolchain based on
+        # this.
         "@pw_toolchain//constraints/arm_mcpu:cortex-m4+nofp",
     ],
 )
