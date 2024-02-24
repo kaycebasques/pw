@@ -65,3 +65,30 @@ stm32_cc_binary(
     name = "pw_function.elf",
     binary = ":pw_function",
 )
+
+cc_binary(
+    name = "pw_kvs",
+    srcs = ["pw_kvs.cc"],
+    malloc = select({
+        "@platforms//cpu:armv7e-m": "@pigweed//pw_malloc",
+        "//conditions:default": "@bazel_tools//tools/cpp:malloc",
+    }),
+    deps = [
+        "@pigweed//pw_boot",
+        "@pigweed//pw_kvs",
+        "@pigweed//pw_kvs:fake_flash_64_aligned_partition",
+        "@pigweed//pw_sys_io",
+        "@pigweed//targets:pw_assert_backend_impl",
+    ] + select({
+        "@platforms//cpu:armv7e-m": [
+            "@pigweed//targets/stm32f429i_disc1:basic_linker_script",
+            "@pigweed//targets/stm32f429i_disc1:pre_init",
+        ],
+        "//conditions:default": [],
+    }),
+)
+
+stm32_cc_binary(
+    name = "pw_kvs.elf",
+    binary = ":pw_kvs",
+)
