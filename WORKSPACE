@@ -79,6 +79,11 @@ local_repository(
     path = "third_party/pigweed/pw_toolchain_bazel",
 )
 
+local_repository(
+    name = "libopencm3",
+    path = "third_party/libopencm3",
+)
+
 # Get ready to grab CIPD dependencies. For this minimal example, the only
 # dependencies will be the toolchains and OpenOCD (used for flashing).
 load(

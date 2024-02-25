@@ -2,3 +2,6 @@
 	path = third_party/pigweed
 	url = https://pigweed.googlesource.com/pigweed/pigweed
 	branch = main
+[submodule "third_party/libopencm3"]
+	path = third_party/libopencm3
+	url = git@github.com:kaycebasques/libopencm3.git

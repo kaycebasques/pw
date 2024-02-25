@@ -19,7 +19,7 @@ py_binary(
     name = "flash",
     srcs = ["flash.py"],
     data = [
-        "//src:echo.elf",
+        "//src:blinky.elf",
         "@openocd//:bin/openocd",
         "@pigweed//targets/stm32f429i_disc1/py/stm32f429i_disc1_utils:openocd_stm32f4xx.cfg",
     ],

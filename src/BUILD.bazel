@@ -16,28 +16,30 @@ load("//:stm32.bzl", "stm32_cc_binary")
 package(default_visibility = ["//visibility:public"])
 
 cc_binary(
-    name = "echo",
-    srcs = ["echo.cc"],
+    name = "blinky",
+    srcs = [
+        "blinky.cc",
+    ],
     malloc = select({
         "@platforms//cpu:armv7e-m": "@pigweed//pw_malloc",
         "//conditions:default": "@bazel_tools//tools/cpp:malloc",
     }),
     deps = [
         "@pigweed//pw_boot",
-        "@pigweed//pw_sys_io",
         "@pigweed//targets:pw_assert_backend_impl",
     ] + select({
         "@platforms//cpu:armv7e-m": [
             "@pigweed//targets/stm32f429i_disc1:basic_linker_script",
             "@pigweed//targets/stm32f429i_disc1:pre_init",
+            "@libopencm3//:libopencm3",
         ],
         "//conditions:default": [],
     }),
 )
 
 stm32_cc_binary(
-    name = "echo.elf",
-    binary = ":echo",
+    name = "blinky.elf",
+    binary = ":blinky",
 )
 
 cc_binary(

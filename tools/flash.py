@@ -11,7 +11,7 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations under
 # the License.
-"""Flash the echo binary to a connected STM32 Discovery Board.
+"""Flash the blinky binary to a connected STM32 Discovery Board.
 
 Usage:
   bazel run //tools:flash
@@ -22,7 +22,7 @@ import subprocess
 from rules_python.python.runfiles import runfiles
 from serial.tools import list_ports
 
-_BINARY_PATH = "__main__/src/echo.elf"
+_BINARY_PATH = "__main__/src/blinky.elf"
 _OPENOCD_PATH = "openocd/bin/openocd"
 _OPENOCD_CONFIG_PATH = "pigweed/targets/stm32f429i_disc1/py/stm32f429i_disc1_utils/openocd_stm32f4xx.cfg"
 
