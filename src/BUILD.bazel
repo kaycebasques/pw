@@ -11,6 +11,7 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations under
 # the License.
+load("@pigweed//pw_build:pigweed.bzl", "pw_cc_test")
 load("//:stm32.bzl", "stm32_cc_binary")
 
 package(default_visibility = ["//visibility:public"])
@@ -91,4 +92,21 @@ cc_binary(
 stm32_cc_binary(
     name = "pw_kvs.elf",
     binary = ":pw_kvs",
+)
+
+cc_library(
+    name = "pw_unit_test_lib",
+    srcs = ["pw_unit_test_lib.cc"],
+    hdrs = ["pw_unit_test_lib.h"],
+    includes = ["."],
+    deps = ["@pigweed//pw_string"],
+)
+
+pw_cc_test(
+    name = "pw_unit_test",
+    srcs = ["pw_unit_test.cc"],
+    deps = [
+        "@pigweed//pw_unit_test",
+        ":pw_unit_test_lib",
+    ],
 )
