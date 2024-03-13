@@ -41,11 +41,34 @@ stm32_cc_binary(
     binary = ":echo",
 )
 
-
+cc_binary(
+    name = "pw_i2c_linux",
+    srcs = ["pw_i2c_linux.cc"],
+    malloc = select({
+        "@platforms//cpu:armv7e-m": "@pigweed//pw_malloc",
+        "//conditions:default": "@bazel_tools//tools/cpp:malloc",
+    }),
+    deps = [
+        "@pigweed//pw_boot",
+        "@pigweed//pw_bytes",
+        "@pigweed//pw_i2c:address",
+        "@pigweed//pw_i2c:device",
+        "@pigweed//pw_i2c:initiator",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//targets:pw_assert_backend_impl",
+    ] + select({
+        "@platforms//os:linux": [
+            "@pigweed//pw_log_basic",
+            "@pigweed//pw_i2c_linux:initiator",
+        ],
+        "//conditions:default": [],
+    }),
+)
 
 pw_cc_test(
-    name = "pw_i2c",
-    srcs = ["pw_i2c.cc"],
+    name = "pw_i2c_mock",
+    srcs = ["pw_i2c_mock.cc"],
     malloc = select({
         "@platforms//cpu:armv7e-m": "@pigweed//pw_malloc",
         "//conditions:default": "@bazel_tools//tools/cpp:malloc",
@@ -68,13 +91,6 @@ pw_cc_test(
         "//conditions:default": [],
     }),
 )
-
-stm32_cc_binary(
-    name = "pw_i2c.elf",
-    binary = ":pw_i2c",
-)
-
-
 
 cc_binary(
     name = "pw_function",
